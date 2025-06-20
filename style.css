@@ -160,7 +160,7 @@ nav li:not(:first-child):hover{
 .about1 {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  max-width: 33% ;
   height:600px;
 }
 
@@ -181,40 +181,56 @@ nav li:not(:first-child):hover{
   opacity: 0.2;
 }
 
-.about-image {
-  display: flex;
-  position: relative;
-  align-items: flex-start;
-}
-
 /*TERMINAL*/
 
 .terminal-wrapper {
   position: relative;
   width: 100%;
   max-width: 400px;
+  height: 600px;
+  aspect-ratio: 4 / 7;
   margin: auto;
+
+  background-image: url('Mac.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
   overflow: hidden;
 }
 
-.terminal-wrapper .terminal {
+
+.about-image .terminal-wrapper .terminal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
-  height: auto;
+  object-fit: cover;
   display: block;
-  max-height: 700px; /* ✅ matches your image's original size */
+  border-radius: 15px;
 }
 
-.terminal-wrapper .overlay {
+.about-image .terminal-wrapper .overlay {
   position: absolute;
-  inset: 0;
-  padding: 8px;
+  z-index: 1;
+  top: 50px; /* ⬅️ keep your desired gap from top */
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+
+  overflow-y: auto;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-x: hidden;
+
   font-size: 0.85rem;
   font-family: monospace;
   font-weight: 100;
   line-height: 1.4;
-  overflow-y: auto;  /* ✅ allow scroll inside overlay if needed */
-  max-height: 100%;  /* ✅ prevents spilling outside the image */
+  padding-right: 5px;
   box-sizing: border-box;
+  z-index: 2;
 }
 
 
@@ -238,16 +254,6 @@ nav li:not(:first-child):hover{
   margin-bottom: 50px ;
 }
 
-.about-image .overlay{
-  position: absolute;
-  top: 50px;
-  left: 10px;
-  font-size: 0.85rem;
-  font-family: monospace;
-  font-weight: 100;
-  /*text-shadow: 0 0 1px rgba(0, 255, 255, 0.3), 0 0 3px rgba(0, 255, 255, 0.3);*/
-  padding: 8px;
-}
 
 .overlay{
   color: #e0e0e0;
@@ -400,7 +406,7 @@ iconify-icon:hover {
     padding: 6px 12px;
     margin-top: 10px;
     gap: 10px;
-    transform: scale(0.85);
+    transform: scale(0.8);
   }
 
   nav li {
@@ -414,6 +420,13 @@ iconify-icon:hover {
   }
 
   /* About Section */
+
+  .about-me {
+  margin: 0;
+  }
+
+  #abt-title{ margin-left: 20px;}
+
   .about-columns {
     flex-direction: column;
     align-items: center;
@@ -422,6 +435,7 @@ iconify-icon:hover {
 
   .about1,
   .about3 {
+    max-width: 100%;
     width: 90%;
     height: auto;
   }
@@ -431,36 +445,52 @@ iconify-icon:hover {
   }
 
   .about-image {
-    width: 90%;
+    width: 100%;
     justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .terminal-wrapper {
-    max-width: 90vw;
-    max-height: none;
+    width: 90vw;
+    height: auto;
+    aspect-ratio: 4 / 7;
+    max-width: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
   }
 
-  .terminal-wrapper .overlay {
-    font-size: 0.7rem;
-    padding: 5%;
+  .about-image .terminal-wrapper .overlay {
+    position: absolute;
+    top: calc(50px * (100vw / 400));
+    left: calc(10px * (100vw / 400));
+    right: calc(10px * (100vw / 400));
+    bottom: calc(10px * (100vw / 400));
+
+    font-size: calc(0.85rem * (100vw / 400));
+    line-height: 1.5;
+    font-family: monospace;
+    font-weight: 100;
+    padding-right: 5px;
+    box-sizing: border-box;
+
     overflow-y: auto;
+    overflow-x: hidden;
+    white-space: normal;
+    word-wrap: break-word;
+    z-index: 2;
   }
 
   .about-image img.terminal {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-}
-
-.about-image .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  font-size: calc(0.85rem * (100vw / 400)); /* 👈 scales based on image width */
-  padding: calc(8px * (100vw / 400));
-  line-height: 1.5;
-}
+    width: 100%;
+    height: auto;
+    max-width: none;
+  }
 
 
   /* Project Section */
@@ -512,4 +542,23 @@ iconify-icon:hover {
     justify-content: flex-start;
   }
 }
+
+
+@media (min-width: 475px) and (max-width: 768px) {
+
+  #abt-title{ margin-left: calc(5vw);}
+
+  .terminal-wrapper {
+    width: 90vw;
+    height: auto;
+  }
+
+  .about-image .terminal-wrapper .overlay {
+    top: calc(12vw); 
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
 
