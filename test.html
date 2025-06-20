@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test prof</title>
+    <link rel="stylesheet" href="test.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li id="resume" class="ani1">Portfolio</li>
+            <li class="ani2">Home</li>
+            <li class="ani2">About</li>
+            <li class="ani2">Skills</li>
+            <li class="ani2">Projects</li>
+            <li class="ani2">Contact</li>
+        </ul>
+    </nav>
+
+    <div class="intro">
+        <h1 class="title">Web  Designer <br><em style="font-family: Times;">& Developer</em></h1>
+        <p><span class="highlight-box">Hey there! I'm Feroan.</span><br>
+        I write scalable, maintainable <span class="juke" style=" background-color:#FF3131;">code</span> to <br> 
+        build mordern <span class="juke" style=" background-color:#00FFFF;"> web solutions</span>.<span class="cursor-border"></span></p>
+    </div>
+
+    <script>
+        fonts =["monospace", "Segoe UI", "Verdana"]
+        colours ={
+            muted_gold: "#d4af7f",
+            accent_gold: "#cba135",
+            soft_bg:    "#f1e8da",
+            dark_base: "#1a1a1a",
+            glassy: "rgba(255,255,255,0.08)",
+            text_base: "#e4d2b4",
+            muted: "#a9745b",
+            border: "#998e7d"
+        };
+
+        const firstItem = document.querySelector('.ani1');
+        const ul = document.querySelector('nav ul'); // Add this line!
+        firstItem.classList.add('stripped'); // Apply temporary look
+
+
+        const items = document.querySelectorAll('.ani2');
+        const removed = [];
+
+        items.forEach(item => {
+        removed.push(item); // store in array
+        item.remove(); // remove from DOM
+        });
+
+        setTimeout(() => {
+  firstItem.classList.remove('stripped');
+  
+  // Animate margin change
+  firstItem.style.marginRight = '320px';
+  firstItem.style.marginLeft = 'auto';
+
+  // Once margin animation ends (after 1.5s), add other items
+  setTimeout(() => {
+    firstItem.style.margin = '0 auto';
+    removed.forEach((item, i) => {
+      ul.appendChild(item);
+      setTimeout(() => {
+        item.classList.add('animate');
+      }, i * 300);
+    });
+  }, 1000); // Matches the CSS transition time
+
+}, 3000);
+
+
+    </script>
+</body>
+</html>
