@@ -172,14 +172,77 @@ nav li:not(:first-child):hover{
   line-height: 1.3;
 }
 
-.about1 img{
-  margin: auto 0;
-  align-self: center;
-  width: 150px;
-  height: 300px;
-  transform: scaleY(-1) rotate(65deg);
-  opacity: 0.2;
+/*font-size: 13.5px;
+padding: 0 23px;*/
+
+.terminal-boot-sequence {
+  border: 1px dashed gray;
+  background-color: rgba(21, 21, 21, 0.514);
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 13px;
+  padding: 0 10px;
+  color: #bbb;
+  opacity: 0.9;
+  transition: all 300ms ease;
 }
+
+.terminal-boot-sequence:hover{
+  text-shadow:0 0 2px rgba(100, 200, 255, 0.5), 0 0 3px rgba(100, 200, 255, 0.2);
+  transform: scale(1.004);
+}
+
+.terminal-boot-sequence p{line-height: 1.3;}
+
+/* Path and command */
+.path {
+  color: #A0A0A0;
+}
+
+.command {
+  color: #C2A1D3; /* very soft pink-purple */
+  font-style: normal;
+}
+
+/* Prompt arrow */
+.symbol {
+  color: #666;
+  margin-right: 6px;
+}
+
+/* Subtle color tones */
+.soft-cyan {
+  color: #8BBEC7;
+}
+
+.soft-purple {
+  color: #C1A7E2;
+}
+
+.soft-orange {
+  color: #D4B18B;
+}
+
+.soft-blue {
+  color: #A4B8DA;
+}
+
+.soft-green {
+  color: #A9D5A3;
+}
+
+/* Cursor effect */
+.cursor {
+  animation: blink 1s steps(1) infinite;
+  color: #999;
+  font-style: normal;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
 
 /*TERMINAL*/
 
@@ -262,7 +325,7 @@ nav li:not(:first-child):hover{
   color: #00ff00;
 }
 
-.cmd{
+.overlay .cmd{
   color: #00bfff;
 }
 
@@ -370,8 +433,6 @@ iconify-icon:hover {
   font-family: 'Poppins', sans-serif;
 }
 
-
-
 .project{
   width: 300px;
   height: 300px;
@@ -424,6 +485,8 @@ iconify-icon:hover {
   .about-me {
   margin: 0;
   }
+
+  .terminal-boot-sequence{display: none;}
 
   #abt-title{ margin-left: 20px;}
 
@@ -492,8 +555,31 @@ iconify-icon:hover {
     max-width: none;
   }
 
+  /* Tech stack adjustments */
+  .about3 {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .tech-stack {
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .tech-stack h2,
+  .category h3 {
+    text-align: left;
+  }
+
+  .icons {
+    justify-content: flex-start;
+  }
+
 
   /* Project Section */
+
   .project-con {
     flex-direction: column;
     align-items: center;
@@ -519,28 +605,6 @@ iconify-icon:hover {
   text-overflow: clip;
 }
 
-
-  /* Tech stack adjustments */
-  .about3 {
-    width: 90%;
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  .tech-stack {
-    width: 100%;
-    text-align: left;
-    padding-left: 0;
-  }
-
-  .tech-stack h2,
-  .category h3 {
-    text-align: left;
-  }
-
-  .icons {
-    justify-content: flex-start;
-  }
 }
 
 
