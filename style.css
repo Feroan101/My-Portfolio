@@ -757,18 +757,24 @@ iconify-icon:hover {
     width: 90vw; /* or 80vw depending on your spacing */
     max-width: 500px;
     height: 200px;
+    scroll-snap-align: center;
     flex-shrink: 0;
   }
 
   .scrollable-carousel {
+    padding: 0 10vw;
     scroll-snap-type: x mandatory;
     display: flex;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 0 20px;
     gap: 20px;
     overflow-x: auto;
   }
+
+  .project-card.active {
+    transform: scale(1.05);
+  }
+
 
   .carousel-container {
     overflow-x: visible;

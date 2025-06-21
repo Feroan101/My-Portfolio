@@ -41,6 +41,6 @@ if (cards.length >= 2) {
 window.addEventListener('load', () => {
 scrollToSecondCard();
 highlightCenterCard();
-});
+}, 300);
 
 carousel.addEventListener('scroll', highlightCenterCard);
