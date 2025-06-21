@@ -14,10 +14,19 @@ h2{
 }
 
 nav{
+    position: fixed;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
     display: flex;
     justify-content: center;
 }
 
+nav a{
+  text-decoration: none;
+  color: #f1e8da;
+}
 
 nav ul{
     display: flex;
@@ -51,13 +60,15 @@ nav ul::before {
 
 nav #resume{
     color: #cba135;
-    cursor: pointer;
+    cursor:help;
     border-right: 2px solid white ;
     padding-right: 18px ;
     font-family: 'Unica One', cursive;
     font-size: 1.2rem;
     letter-spacing: 1px;
 }
+
+.toggle-icon{display: none;}
 
 nav li{
     color: #f1e8da;
@@ -277,7 +288,7 @@ padding: 0 23px;*/
 .about-image .terminal-wrapper .overlay {
   position: absolute;
   z-index: 1;
-  top: 50px; /* ⬅️ keep your desired gap from top */
+  top: 50px; 
   left: 10px;
   right: 10px;
   bottom: 10px;
@@ -421,6 +432,7 @@ iconify-icon:hover {
   border-bottom: 3px solid #a67917;
   color: #5e4300;
   white-space: nowrap;
+  box-shadow: 0 10px 10px rgba(44, 43, 37, 0.8);
 }
 
 .overflow-text {
@@ -433,22 +445,93 @@ iconify-icon:hover {
   font-family: 'Poppins', sans-serif;
 }
 
-.project{
+.project-sec{
+  background-color: #121212;
+  text-align: center;
+  border-bottom:5px solid #cba135;
+}
+
+.project-con{
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+}
+
+.project-sec h2{
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+.project-card{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif ;
   width: 300px;
   height: 300px;
+  max-height: 300px;
+  max-width: 300px;
   background-color: #c792ea;
-  transition: 300ms ease-in-out;
+  transition: transform 300ms ease;
 }
 
-.project:hover{
-  transform: scale(1.05);
+.project-card:hover{
+  transform: scale(1.03);
 }
 
-.project-sec{
-  margin: 30px 60px 0 60px;
+.project-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top:0;bottom: 0;;
+  z-index: 0;
 }
 
+.project-con .pro-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(61, 61, 60, 0.388);
+  backdrop-filter: blur(10);
+  opacity: 0;
+  color: #f6e27f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
 
+.project-card:hover .pro-overlay{
+  opacity: 1;
+}
+
+.project-card p{
+  z-index: 2; 
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+.card-ex{
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  height: 35px;
+  background: #121212;
+  color: #d7d7d7;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 30px;
+  transition: bottom 0.3s ease;
+  border-top: 1px solid #2a2a2a;
+  z-index: 2;
+}
+
+.project-card:hover .card-ex{bottom: 0;}
 
 
 /* ========== RESPONSIVE DESIGN ========== */
@@ -467,16 +550,33 @@ iconify-icon:hover {
     padding: 6px 12px;
     margin-top: 10px;
     gap: 10px;
-    transform: scale(0.8);
+    transform: scale(0.9);
+    flex-direction: column;
   }
 
-  nav li {
+  nav ul li:not(:first-child) {
+    display: none;
     font-size: 13px;
     margin: 0 6px;
   }
 
+  nav.show ul li:not(:first-child){
+    display: block;
+  }
+
+  .toggle-icon {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+  }
+
+  nav.show .toggle-icon {
+    transform: rotate(180deg);
+  }
+
   nav #resume {
-    padding-right: 10px;
+    padding:0 ;
+    border: none;
     font-size: 1rem;
   }
 
@@ -586,29 +686,29 @@ iconify-icon:hover {
     gap: 20px;
   }
 
-  .project {
+  .project-card {
     width: 90%;
     height: 200px;
   }
 
   .project-banner {
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 0;
-  height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0;
+    height: 40px;
+  }
+
+  .overflow-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
 }
 
-.overflow-text {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: clip;
-}
 
-}
-
-
-@media (min-width: 475px) and (max-width: 768px) {
+@media (min-width: 512px) and (max-width: 768px) {
 
   #abt-title{ margin-left: calc(5vw);}
 
@@ -623,6 +723,25 @@ iconify-icon:hover {
     right: 10px;
     bottom: 10px;
   }
+
+  nav ul{
+    transform: scale(1.1);
+    flex-direction: row;
+  }
+
+  nav #resume{
+    padding-right: 12px ;
+    border-right: 2px solid white ;
+  }
+
+  .toggle-icon{display: none;}
+
+  nav ul li:not(:first-child) {
+    display: block;
+    font-size: 13px;
+    margin: 0 6px;
+  }
 }
+
 
 

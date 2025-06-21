@@ -13,12 +13,12 @@
 <body>
     <nav>
         <ul>
-            <li id="resume">Portfolio</li>
-            <li>Home</li>
-            <li href="#about">About</li>
-            <li>Skills</li>
-            <li>Projects</li>
-            <li>Contact</li>
+            <li id="resume">Portfolio <span class="toggle-icon">▼</span></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
@@ -146,6 +146,7 @@
     </div>
 
     <!--Projects Section-->
+    <div class="project-sec" id="projects">
     <div class="project-banner">
         <div class="overflow-text">
         <span>project archive</span>
@@ -155,6 +156,7 @@
         <span>build history</span>
         <span>•••</span>
         <span>retrieving records</span>
+        <span>•••</span>
         <span>portfolio showcase</span>
         <span>•••</span>
         <span>initializing modules</span>
@@ -172,15 +174,16 @@
     </div>
 
 
-    <div class="project-sec">
-    <h2>Projects</h2>
-    <div class="project-con">
-        <div class="project">1</div>
-        <div class="project">2</div>
-        <div class="project">3</div>
-        <div class="project">4</div>
+        <h2>Projects</h2>
+        <div class="project-con">
+            <div class="project-card"><img src="" alt="project preview"/><div class="pro-overlay"><p>project 1</p></div><div class="card-ex">Nexora 2k25</div></div>
+            <div class="project-card"><img src="" alt="project preview"/><div class="pro-overlay"><p>Project 2</p></div><div class="card-ex">Consulting company</div></div>
+            <div class="project-card"><img src="" alt="project preview"/><div class="pro-overlay"><p>project 3</p></div><div class="card-ex">Tax Aduiting company</div></div>
+            <div class="project-card"><img src="" alt="project preview"/><div class="pro-overlay"><p>project 4</p></div><div class="card-ex">Structural Health Monitoring report</div></div>
+        </div>
     </div>
-    </div>
+
+    <div style="height: 100px;"></div>
 
 
     <script>
@@ -198,5 +201,6 @@
 
 
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
