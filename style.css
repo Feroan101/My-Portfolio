@@ -265,7 +265,7 @@ padding: 0 23px;*/
   aspect-ratio: 4 / 7;
   margin: auto;
 
-  background-image: url('Mac.svg');
+  background-image: url('img/Mac.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -451,35 +451,94 @@ iconify-icon:hover {
   border-bottom:5px solid #cba135;
 }
 
-.project-con{
-  display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 50px;
-}
-
 .project-sec h2{
   font-size: 2.8rem;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
   text-transform: uppercase;
 }
 
-.project-card{
+.project-sec p{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  color: rgba(241, 232, 218, 0.5);
+}
+
+.project-card {
+  width: 500px;
+  height: 350px;
+  overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transform: scale(0.9);
+  opacity: 0.6;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  background-color: transparent;
+  will-change: transform, opacity;
+  scroll-snap-align: center;
+}
+
+
+.card-image-wrapper {
+  width: 100%;
+  height: 100%; /* fill full card height */
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top; /* THIS fixes the centering */
+  display: block;
+  position: relative;
+}
+
+.carousel-container {
+  width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif ;
-  width: 300px;
-  height: 300px;
-  max-height: 300px;
-  max-width: 300px;
-  background-color: #c792ea;
-  transition: transform 300ms ease;
+  padding: 30px 0;
 }
 
-.project-card:hover{
-  transform: scale(1.03);
+.scrollable-carousel {
+  display: flex;
+  gap: 60px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  transform-style: preserve-3d;
+  padding: 0 300px; /* clip the sides so center card is prominent */
+  position: relative;
+}
+
+.scrollable-carousel::-webkit-scrollbar {
+  display: none;
+}
+.scrollable-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.project-card.active {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 10;
 }
 
 .project-card img{
@@ -487,51 +546,51 @@ iconify-icon:hover {
   height: 100%;
   object-fit: cover;
   position: absolute;
-  top:0;bottom: 0;;
+  top:0;
+  bottom: 0;;
   z-index: 0;
 }
 
-.project-con .pro-overlay{
+.pro-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(61, 61, 60, 0.388);
-  backdrop-filter: blur(10);
-  opacity: 0;
-  color: #f6e27f;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
+  opacity: 0;
   transition: opacity 0.3s ease;
-  cursor: pointer;
-  z-index: 1;
 }
 
-.project-card:hover .pro-overlay{
+.project-card:hover .pro-overlay {
   opacity: 1;
 }
 
-.project-card p{
-  z-index: 2; 
-  color: #ccc;
-  text-transform: uppercase;
+
+.card-title {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
-.card-ex{
-  position: absolute;
-  bottom: -30px;
-  width: 100%;
-  height: 35px;
-  background: #121212;
-  color: #d7d7d7;
-  font-size: 0.8rem;
+.scroll-hint {
   text-align: center;
-  line-height: 30px;
-  transition: bottom 0.3s ease;
-  border-top: 1px solid #2a2a2a;
-  z-index: 2;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  animation: pulse 1.5s ease-in-out infinite;
+  user-select: none;
 }
 
-.project-card:hover .card-ex{bottom: 0;}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
 
 
 /* ========== RESPONSIVE DESIGN ========== */
@@ -604,7 +663,7 @@ iconify-icon:hover {
   }
 
   .about1 img {
-    display: none; /* 🔥 Hides arrow image on mobile */
+    display: none; /* Hides arrow image on mobile */
   }
 
   .about-image {
@@ -680,17 +739,6 @@ iconify-icon:hover {
 
   /* Project Section */
 
-  .project-con {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .project-card {
-    width: 90%;
-    height: 200px;
-  }
-
   .project-banner {
     white-space: nowrap;
     overflow: hidden;
@@ -704,6 +752,28 @@ iconify-icon:hover {
     overflow: hidden;
     text-overflow: clip;
   }
+
+  .project-card {
+    width: 90vw; /* or 80vw depending on your spacing */
+    max-width: 500px;
+    height: 200px;
+    flex-shrink: 0;
+  }
+
+  .scrollable-carousel {
+    scroll-snap-type: x mandatory;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 20px;
+    gap: 20px;
+    overflow-x: auto;
+  }
+
+  .carousel-container {
+    overflow-x: visible;
+  }
+
 
 }
 
@@ -740,6 +810,13 @@ iconify-icon:hover {
     display: block;
     font-size: 13px;
     margin: 0 6px;
+  }
+
+  .project-card {
+    width: 90vw; /* or 80vw depending on your spacing */
+    max-width: 500px;
+    height: 320px;
+    flex-shrink: 0;
   }
 }
 
