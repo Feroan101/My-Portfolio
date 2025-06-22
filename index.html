@@ -4,26 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feroan's Portfolio</title>
-    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="icon" href="img/favicon.png " type="image/png">
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 </head>
 
 <body>
     <nav>
         <ul>
             <li id="resume">Portfolio <span class="toggle-icon">▼</span></li>
-            <li><a href="#">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="intro">
+    <div class="intro" id="home">
         <h1 class="title">Web  Designer <br><em style="font-family: Times;">& Developer</em></h1>
         <p><span class="highlight-box">Hey there! I'm Feroan.</span><br>
         I write scalable, maintainable <span class="juke" style=" background-color:#FF3131;">code</span> to <br> 
@@ -224,8 +226,67 @@
         <p class="scroll-hint">← scroll to explore →</p>
     </div>
 
-    <div style="height: 100px;"></div>
+    <div class="service" id="skills">
+        <h2>What I Can<br> Help With</h2>
 
+        <div class="ser-card-con">
+            <div class="ser-card">
+                <h3>Building Websites That Just Work</h3>
+                <p>I create responsive, fast-loading websites that look great on any screen — 
+                    perfect for portfolios, small businesses, or anyone who needs a solid online presence.</p>
+            </div>
+            <div class="ser-card">
+                <h3>UI/UX Design That Feels Right</h3>
+                <p>I design interfaces that are simple, smooth, and easy to use. 
+                    It’s all about making things clear, clean, and enjoyable for real people.</p>
+            </div>
+            <div class="ser-card">
+                <h3>Custom Automation & Tools</h3>
+                <p>I build Python-powered automation tools and bots that simplify repetitive tasks —
+                whether it’s organizing files, scraping data, or improving workflow efficiency with custom scripts.</p>
+            </div>
+            <div class="ser-card">
+                <h3>Smart Projects with Real Hardware</h3>
+                <p>I enjoy turning ideas into working prototypes using microcontrollers like Arduino and Raspberry Pi. Whether it’s a sensor-based system or
+                    a smart automation setup, I build interactive projects that bridge the gap between code and the physical world.</p>
+            </div>
+            <div class="ser-card">
+                <h3>Docs, Decks & Demo-Ready Reports</h3>
+                <p>Whether it’s a client handoff, a final-year project, or a pitch for your next idea — I create clean, easy-to-follow documentation, 
+                    structured reports, and polished slides that make your work presentable and professional.</p>
+            </div>
+            <div class="ser-card">
+                <h3>Student Project Assistance</h3>
+                <p>Working on a college project? I’ve got you covered — with working code, 
+                    diagrams, reports, and everything you need to present it like a pro.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact" id="contact">
+        <p class="contact-intro"><spam style="color: #9cdcfe;">echo</spam> 'Hey there'><spam class="path">/inbox</spam></p>
+        <h1 class="title">Say something cool<br><em style="font-family: Times;">or random</em></h1>
+        <p class="contact-desc">
+            Whether it’s a quick hello, a weird idea, or just <br> pure vibes — feel free to drop a message. I read everything.
+        </p>
+        <a href="mailto:feroanmothy666@gmail.com" class="btn">Mail Me >></a>
+    </div>
+
+    <footer class="site-footer">
+    <h3 class="footer-heading">also hanging out here</h3>
+
+    <div class="social-icons">
+        <a href="https://github.com/feroan101" target="_blank" class="github"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/feroan-mothy-316868291/" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com/feroan.xo" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/feroan69" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://open.spotify.com/user/31a2qnxzpwf2kgyc2ujsy5qw2d24" target="_blank" class="spotify"><i class="fab fa-spotify"></i></a>
+        <a href="https://discord.com/users/740434347785453640" target="_blank" class="discord"><i class="fab fa-discord"></i></a>
+        <a href="https://dribbble.com/ferooooooaaannn" target="_blank" class="dribbble"><i class="fab fa-dribbble"></i></a>
+    </div>
+
+    <p class="copyright">© 2025 Feroan Mothy — all chaos, code & sleep deprivation reserved.</p>
+    </footer>
 
     <script>
         fonts =["monospace", "Segoe UI", "Verdana"]

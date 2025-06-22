@@ -446,7 +446,7 @@ iconify-icon:hover {
 }
 
 .project-sec{
-  background-color: #121212;
+  background-color: #101010;
   text-align: center;
   border-bottom:5px solid #cba135;
 }
@@ -590,6 +590,206 @@ iconify-icon:hover {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
+
+
+/*SERVICE*/
+
+.service{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service h2{
+  margin:20px;
+}
+
+.service h2 br{display: none;}
+
+.service .ser-card-con{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.ser-card{
+  width: 400px;
+  background-color: #1a1a1a;
+  /*background: radial-gradient(
+    circle at center,
+    rgba(11, 11, 11, 0.9),
+    rgb(26, 26, 26,0.2) 60%);*/
+  background: linear-gradient(135deg, rgba(11, 11, 11, 0.9),  rgb(26, 26, 26,0.2) 60%);
+  border-radius: 3px;
+  padding: 2rem;
+  border: 1px solid rgb(136, 112, 81);
+  color: #f1f1f1; 
+  margin: auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  aspect-ratio: 2 / 1;
+  transition: transform 400ms ease;
+}
+.ser-card:hover{
+  transform: scale(1.03);
+}
+
+.ser-card h3{
+  color: #cba135;
+  font-family: 'Inter','Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  position: relative;
+}
+
+/*
+.ser-card h3::after {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #f857a6, #ff5858, #ffc371, #47c1ff, #845ec2);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+
+.ser-card h3::after {
+  background-size: 300% 100%;
+  transition: background-position 0.5s ease;
+}
+
+.ser-card h3:hover::after {
+  background-position: right center;
+} */
+
+
+.ser-card p{
+  color: #cbd5e1; /* soft neutral light, readable on dark bg */
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+
+/*CONTACT*/
+
+.contact {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: url('img/star-blur.jpg') center/cover no-repeat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-intro {
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 100;
+  color: #89847c;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.contact-desc {
+  text-align: center;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 100;
+  color: #f1e8da;
+  margin: 8px;
+  line-height: 1.5;
+  padding: 3px;
+}
+
+.contact .title{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 70px;
+}
+
+.btn {
+  background-color: #c29b6d;
+  color: #1a1a1a;
+  padding: 12px 45px;
+  font-family: Consolas;
+  font-weight: 600;
+  border: 2px solid #a87f52;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 0;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #a87f52;
+}
+
+
+/*FOOTER*/
+
+.site-footer {
+  background: #111;
+  padding: 60px 20px;
+  text-align: center;
+  color: #bbb;
+  border-top: 2px solid #333;
+}
+
+.footer-heading {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 25px;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.social-icons a {
+  color: #bbb;
+  font-size: 1.8rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Individual platform hover colors */
+.social-icons .github:hover    { color: #ffffff; }
+.social-icons .linkedin:hover  { color: #0077b5; }
+.social-icons .instagram:hover { color: #e4405f; }
+.social-icons .twitter:hover   { color: #1da1f2; }
+.social-icons .spotify:hover   { color: #1db954; }
+.social-icons .discord:hover   { color: #5865f2; }
+.social-icons .dribbble:hover  { color: #ea4c89; }
+
+footer p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
 
 
 
@@ -780,6 +980,46 @@ iconify-icon:hover {
     overflow-x: visible;
   }
 
+  /*SERVICE*/
+  .ser-card{margin:0 5vw;}
+  .service h2{
+    font-size: 2.4rem; 
+    text-align: center;
+  }
+
+  .service h2 br{display: inline;}
+
+  /*CONTACT*/
+  .contact .title {
+    font-size: 2.2rem;
+  }
+  
+  .contact-desc, .contact-intro{font-size: 15px;}
+  .contact-desc br{display: none;}
+
+  /*FOOTER*/
+  .site-footer {
+    padding: 40px 16px;
+  }
+
+  .footer-heading {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .social-icons {
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+
+  .social-icons a {
+    font-size: 1.4rem; /* smaller icon size */
+  }
+
+  footer p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
 
 }
 
@@ -824,6 +1064,11 @@ iconify-icon:hover {
     height: 320px;
     flex-shrink: 0;
   }
+
+  .service h2 br{display: none;}
+
+  .contact-desc br{display:inline;}
+
 }
 
 
